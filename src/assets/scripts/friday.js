@@ -136,3 +136,39 @@ function disableButtons() {
   ? btnNext.disabled = true
   : btnNext.disabled = false
 }
+
+// -----------------------------
+// Video Track
+// -----------------------------
+
+const controlTracker = new tracking.ColorTracker(['magenta', 'yellow']);
+
+let move;
+
+controlTracker.on('track', e => {
+
+  if (e.data.length === 0) {
+    move = true;
+  } else {
+    if(move) {
+      if (e.data[0].x > 100) movePositions(1)
+      if (e.data[0].x < 100) movePositions(-1)
+    }
+    move = false;
+  }
+
+  // if (e.data.length === 0) {
+  //   move = true;
+  // } else {
+  //   if(move) {
+  //     if (e.data[0].color === 'magenta') movePositions(1)
+  //     if (e.data[0].color === 'yellow') movePositions(-1)
+  //   }
+  //   move = false;
+  // }
+});
+
+const trackerTask = tracking.track('#camera', controlTracker, { camera: true });
+
+trackerTask.stop();
+// trackerTask.run();

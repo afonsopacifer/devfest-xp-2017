@@ -203,5 +203,41 @@ function disableButtons() {
   isLastSlide ? btnNext.disabled = true : btnNext.disabled = false;
 }
 
+// -----------------------------
+// Video Track
+// -----------------------------
+
+var controlTracker = new tracking.ColorTracker(['magenta', 'yellow']);
+
+var move = void 0;
+
+controlTracker.on('track', function (e) {
+
+  if (e.data.length === 0) {
+    move = true;
+  } else {
+    if (move) {
+      if (e.data[0].x > 100) movePositions(1);
+      if (e.data[0].x < 100) movePositions(-1);
+    }
+    move = false;
+  }
+
+  // if (e.data.length === 0) {
+  //   move = true;
+  // } else {
+  //   if(move) {
+  //     if (e.data[0].color === 'magenta') movePositions(1)
+  //     if (e.data[0].color === 'yellow') movePositions(-1)
+  //   }
+  //   move = false;
+  // }
+});
+
+var trackerTask = tracking.track('#camera', controlTracker, { camera: true });
+
+trackerTask.stop();
+// trackerTask.run();
+
 /***/ })
 /******/ ]);
