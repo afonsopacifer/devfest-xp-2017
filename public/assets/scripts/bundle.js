@@ -100,6 +100,26 @@ btnBack.addEventListener('click', function () {
   return movePositions(-1);
 });
 
+window.addEventListener('keydown', function (e) {
+  var pressRight = e.which == 39 || e.keyCode == 39;
+  if (pressRight) movePositions(1);
+});
+
+window.addEventListener('keydown', function (e) {
+  var pressDown = e.which == 40 || e.keyCode == 40;
+  if (pressDown) movePositions(1);
+});
+
+window.addEventListener('keydown', function (e) {
+  var pressLeft = e.which == 37 || e.keyCode == 37;
+  if (pressLeft) movePositions(-1);
+});
+
+window.addEventListener('keydown', function (e) {
+  var pressUp = e.which == 38 || e.keyCode == 38;
+  if (pressUp) movePositions(-1);
+});
+
 // -----------------------------
 // Bullets
 // -----------------------------
@@ -116,21 +136,6 @@ allSlides.forEach(function (el, i) {
 
   carouselBullets.appendChild(li);
 });
-
-// -----------------------------
-// Media query
-// -----------------------------
-
-if (matchMedia) {
-  var mq = window.matchMedia("(min-width: 800px)");
-  mq.addListener(WidthChange);
-  WidthChange(mq);
-}
-
-// media query change
-function WidthChange(mq) {
-  if (mq.matches) {} else {}
-}
 
 // -----------------------------
 // Bullets status

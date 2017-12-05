@@ -21,6 +21,26 @@ let totalSlides = allSlides.length;
 btnNext.addEventListener('click', () => movePositions(1));
 btnBack.addEventListener('click', () => movePositions(-1));
 
+window.addEventListener('keydown', (e) => {
+  const pressRight = e.which == 39 || e.keyCode == 39;
+  if (pressRight) movePositions(1);
+});
+
+window.addEventListener('keydown', (e) => {
+  const pressDown = e.which == 40 || e.keyCode == 40;
+  if (pressDown) movePositions(1);
+});
+
+window.addEventListener('keydown', (e) => {
+  const pressLeft = e.which == 37 || e.keyCode == 37;
+  if (pressLeft) movePositions(-1);
+});
+
+window.addEventListener('keydown', (e) => {
+  const pressUp = e.which == 38 || e.keyCode == 38;
+  if (pressUp) movePositions(-1);
+});
+
 // -----------------------------
 // Bullets
 // -----------------------------
@@ -44,26 +64,6 @@ allSlides.forEach((el, i) => {
 
   carouselBullets.appendChild(li)
 })
-
-// -----------------------------
-// Media query
-// -----------------------------
-
-if (matchMedia) {
-  const mq = window.matchMedia("(min-width: 800px)");
-  mq.addListener(WidthChange);
-  WidthChange(mq);
-}
-
-// media query change
-function WidthChange(mq) {
-  if (mq.matches) {
-
-  } else {
-
-  }
-
-}
 
 // -----------------------------
 // Bullets status
