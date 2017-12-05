@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0">
+    <meta charset="utf-8">
+
+    <meta name="description" content="">
+    <meta name="robots" content="index,follow">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/styles/style.css">
+
+    <title>F.R.I.D.A.Y Presentation</title>
+
+  </head>
+  <body>
+
+    <div class="carousel-container" id="carouselContainer">
+
+      <header class="carousel-header">
+
+        <h1 class="carousel__heading">F.R.I.D.A.Y</h1>
+
+        <button class="carousel__btn carousel__btn--back" id="btnBack" disabled>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <title>Back</title>
+            <path d="M16.67 0l2.83 2.829-9.339 9.175 9.339 9.167-2.83 2.829-12.17-11.996z"/>
+          </svg>
+        </button>
+
+        <button class="carousel__btn carousel__btn--next" id="btnNext">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <title>Next</title>
+            <path d="M7.33 24l-2.83-2.829 9.339-9.175-9.339-9.167 2.83-2.829 12.17 11.996z"/>
+          </svg>
+        </button>
+      </header>
+
+      <section class="carousel">
+        <article class="carousel__slide">Slide 1</article>
+        <article class="carousel__slide">Slide 2</article>
+        <article class="carousel__slide">Slide 3</article>
+      </section>
+
+      <ul class="carousel__bullets" id="carouselBullets"></ul>
+
+    </div>
+
+    <script type="text/javascript" src="assets/scripts/bundle.js" async></script>
+
+  </body>
+</html>
