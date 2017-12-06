@@ -138,10 +138,10 @@ function disableButtons() {
 }
 
 // -----------------------------
-// Video Track
+// Video Tracker
 // -----------------------------
 
-const controlTracker = new tracking.ColorTracker(['magenta', 'yellow']);
+const controlTracker = new tracking.ColorTracker(['yellow']);
 
 let move;
 
@@ -151,8 +151,8 @@ controlTracker.on('track', e => {
     move = true;
   } else {
     if(move) {
-      if (e.data[0].x > 100) movePositions(1)
-      if (e.data[0].x < 100) movePositions(-1)
+      if (e.data[0].x < 100) movePositions(1)
+      if (e.data[0].x > 100) movePositions(-1)
     }
     move = false;
   }
@@ -170,5 +170,64 @@ controlTracker.on('track', e => {
 
 const trackerTask = tracking.track('#camera', controlTracker, { camera: true });
 
-trackerTask.stop();
-// trackerTask.run();
+// -----------------------------
+// Control video Tracker
+// -----------------------------
+
+const camera = document.getElementById('camera');
+
+const startVideo = () => {
+  camera.classList.add('camera--on');
+  trackerTask.run();
+}
+
+const stopVideo = () => {
+  trackerTask.stop();
+  camera.classList.remove('camera--on');
+}
+
+stopVideo();
+
+// -----------------------------
+// Audio Tracker
+// -----------------------------
+
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+
+
+var recognition = new SpeechRecognition();
+
+recognition.lang = 'pt-BR';
+recognition.maxAlternatives = 1;
+
+var diagnostic = document.querySelector('#micRes');
+var mic = document.querySelector('#mic');
+
+mic.onclick = function() {
+  recognition.start();
+  diagnostic.style = 'display: block;';
+  mic.classList.add('mic--on');
+}
+
+recognition.onresult = function(event) {
+  var color = event.results[0][0].transcript;
+
+  if (color == "Abrir câmera") {
+    startVideo()
+  }
+
+  if (color == "fechar") {
+    stopVideo()
+  }
+
+  if (color == "avançar") {
+    movePositions(1)
+  }
+
+  if (color == "voltar") {
+    movePositions(-1)
+  }
+
+  diagnostic.textContent = color;
+  mic.classList.remove('mic--on');
+}

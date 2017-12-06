@@ -204,10 +204,10 @@ function disableButtons() {
 }
 
 // -----------------------------
-// Video Track
+// Video Tracker
 // -----------------------------
 
-var controlTracker = new tracking.ColorTracker(['magenta', 'yellow']);
+var controlTracker = new tracking.ColorTracker(['yellow']);
 
 var move = void 0;
 
@@ -217,8 +217,8 @@ controlTracker.on('track', function (e) {
     move = true;
   } else {
     if (move) {
-      if (e.data[0].x > 100) movePositions(1);
-      if (e.data[0].x < 100) movePositions(-1);
+      if (e.data[0].x < 100) movePositions(1);
+      if (e.data[0].x > 100) movePositions(-1);
     }
     move = false;
   }
@@ -236,8 +236,66 @@ controlTracker.on('track', function (e) {
 
 var trackerTask = tracking.track('#camera', controlTracker, { camera: true });
 
-trackerTask.stop();
-// trackerTask.run();
+// -----------------------------
+// Control video Tracker
+// -----------------------------
+
+var camera = document.getElementById('camera');
+
+var startVideo = function startVideo() {
+  camera.classList.add('camera--on');
+  trackerTask.run();
+};
+
+var stopVideo = function stopVideo() {
+  trackerTask.stop();
+  camera.classList.remove('camera--on');
+};
+
+stopVideo();
+
+// -----------------------------
+// Audio Tracker
+// -----------------------------
+
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+
+var recognition = new SpeechRecognition();
+
+recognition.lang = 'pt-BR';
+recognition.maxAlternatives = 1;
+
+var diagnostic = document.querySelector('#micRes');
+var mic = document.querySelector('#mic');
+
+mic.onclick = function () {
+  recognition.start();
+  diagnostic.style = 'display: block;';
+  mic.classList.add('mic--on');
+};
+
+recognition.onresult = function (event) {
+  var color = event.results[0][0].transcript;
+
+  if (color == "Abrir câmera") {
+    startVideo();
+  }
+
+  if (color == "fechar") {
+    stopVideo();
+  }
+
+  if (color == "avançar") {
+    movePositions(1);
+  }
+
+  if (color == "voltar") {
+    movePositions(-1);
+  }
+
+  diagnostic.textContent = color;
+  mic.classList.remove('mic--on');
+};
 
 /***/ })
 /******/ ]);
