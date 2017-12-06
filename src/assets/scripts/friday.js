@@ -1,5 +1,21 @@
 // -----------------------------
-// DOM Elements
+// Modules
+// -----------------------------
+
+// Slides
+// ----------------
+import movementsLimit from './slides/movementsLimit';
+import bulletsStatus from './slides/bulletsStatus';
+import createBullets from './slides/createBullets';
+import moveToSpecificPosition from './slides/moveToSpecificPosition';
+import movePositions from './slides/movePositions';
+
+// Helpers
+// ----------------
+import addKeyboardEventListener from './addKeyboardEventListener';
+
+// -----------------------------
+// Slides DOM Elements
 // -----------------------------
 
 const allSlides = document.querySelectorAll('.carousel__slide');
@@ -11,134 +27,66 @@ const carouselBullets = document.getElementById('carouselBullets');
 // States
 // -----------------------------
 
-let moveState = 0;
-let totalSlides = allSlides.length;
+const state = {
+  move: 0,
+  totalSlides: allSlides.length,
+  permission: {
+    back: false,
+    next: true
+  }
+}
+
+// -----------------------------
+// Create Bullets
+// -----------------------------
+
+createBullets(allSlides);
+
+const allBullets = document.querySelectorAll('.bullet');
+
+allBullets.forEach((bullet, index) => {
+  bullet.addEventListener('click', () => {
+    moveToSpecificPosition(
+      index,
+      state,
+      allSlides,
+      allBullets,
+      btnBack,
+      btnNext
+    );
+  });
+});
 
 // -----------------------------
 // Controls
 // -----------------------------
 
-btnNext.addEventListener('click', () => movePositions(1));
-btnBack.addEventListener('click', () => movePositions(-1));
+const nextSlide = () => {
+  movePositions(1, state, allSlides, allBullets, btnBack, btnNext)
+}
 
-window.addEventListener('keydown', (e) => {
-  const pressRight = e.which == 39 || e.keyCode == 39;
-  if (pressRight) movePositions(1);
-});
-
-window.addEventListener('keydown', (e) => {
-  const pressDown = e.which == 40 || e.keyCode == 40;
-  if (pressDown) movePositions(1);
-});
-
-window.addEventListener('keydown', (e) => {
-  const pressLeft = e.which == 37 || e.keyCode == 37;
-  if (pressLeft) movePositions(-1);
-});
-
-window.addEventListener('keydown', (e) => {
-  const pressUp = e.which == 38 || e.keyCode == 38;
-  if (pressUp) movePositions(-1);
-});
-
-// -----------------------------
-// Bullets
-// -----------------------------
-
-allSlides.forEach((el, i) => {
-  const li = document.createElement('li');
-  li.className = "bullet";
-
-  li.addEventListener('click', () => {
-    moveToSpecificPosition(i);
-  })
-
-  li.innerHTML =`
-    <button class="bullet__button">
-      <svg  class="bullet__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <title>Avançar para a ${i + 1}° notícia</title>
-        <circle cx="12" cy="12" r="12"/>
-      </svg>
-    </button>
-  `;
-
-  carouselBullets.appendChild(li)
-})
-
-// -----------------------------
-// Bullets status
-// -----------------------------
-
-const allBullets = document.querySelectorAll('.bullet');
-allBullets[0].classList.add('bullet--active')
-
-function bulletsStatus(currentPosition) {
-  allBullets.forEach((bullet, i) => {
-    i === currentPosition
-    ? bullet.classList.add('bullet--active')
-    : bullet.classList.remove('bullet--active')
-  })
+const backSlide = () => {
+  movePositions(-1, state, allSlides, allBullets, btnBack, btnNext)
 }
 
 // -----------------------------
-// Move To Positions
+// Buttons
 // -----------------------------
 
-function movePositions(value) {
-  const movePercent =  (value * 100) * -1;
-
-  allSlides.forEach( (slide) => {
-    slide.style.transform = `translateX(${movePercent + moveState}%)`;
-  });
-
-  moveState += movePercent;
-
-  disableButtons();
-
-  const currentPosition = (moveState / 100) * -1 ;
-
-  bulletsStatus(currentPosition);
-}
+btnNext.addEventListener('click', () => nextSlide());
+btnBack.addEventListener('click', () => backSlide());
 
 // -----------------------------
-// Move To Specific Positions
+// Keyboard
 // -----------------------------
 
-function moveToSpecificPosition(value) {
-
-  const movePercent =  (value * 100) * -1;
-
-  allSlides.forEach(slide => {
-    slide.style.transform = `translateX(${movePercent}%)`;
-  });
-
-  moveState = movePercent;
-
-  disableButtons();
-
-  bulletsStatus(value);
-}
+addKeyboardEventListener(39, nextSlide);
+addKeyboardEventListener(40, nextSlide);
+addKeyboardEventListener(37, backSlide);
+addKeyboardEventListener(38, backSlide);
 
 // -----------------------------
-// Disable Buttons
-// -----------------------------
-
-function disableButtons() {
-  const isFirstSlide = moveState === 0;
-
-  isFirstSlide
-  ? btnBack.disabled = true
-  : btnBack.disabled = false
-
-  const isLastSlide = moveState === ((totalSlides - 1) * -100);
-
-  isLastSlide
-  ? btnNext.disabled = true
-  : btnNext.disabled = false
-}
-
-// -----------------------------
-// Video Tracker
+// Video DOM Elements
 // -----------------------------
 
 const controlTracker = new tracking.ColorTracker(['yellow']);
@@ -192,42 +140,59 @@ stopVideo();
 // Audio Tracker
 // -----------------------------
 
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 
-
-var recognition = new SpeechRecognition();
-
+const recognition = new SpeechRecognition();
 recognition.lang = 'pt-BR';
-recognition.maxAlternatives = 1;
 
-var diagnostic = document.querySelector('#micRes');
-var mic = document.querySelector('#mic');
+const result = document.querySelector('#micRes');
+const mic = document.querySelector('#mic');
 
-mic.onclick = function() {
+mic.addEventListener('click', () => {
   recognition.start();
-  diagnostic.style = 'display: block;';
+  result.style = 'display: block;';
   mic.classList.add('mic--on');
-}
+});
 
-recognition.onresult = function(event) {
-  var color = event.results[0][0].transcript;
+recognition.onresult = e => {
+  var res = e.results[0][0].transcript;
 
-  if (color == "Abrir câmera") {
+  if (res == "Abrir câmera") {
     startVideo()
   }
 
-  if (color == "fechar") {
+  if (res == "Fechar câmera") {
     stopVideo()
   }
 
-  if (color == "avançar") {
+  if (res == "avançar") {
     movePositions(1)
   }
 
-  if (color == "voltar") {
+  if (res == "voltar") {
     movePositions(-1)
   }
 
-  diagnostic.textContent = color;
+  if (res == "sexta-feira") {
+      synth.speak(msg);
+  }
+
+  result.textContent = res;
   mic.classList.remove('mic--on');
 }
+
+// -----------------------------
+// Audio Synthesis
+// -----------------------------
+
+const synth = window.speechSynthesis;
+
+var msg = new SpeechSynthesisUtterance();
+var voices = window.speechSynthesis.getVoices();
+msg.voice = voices[10]; // Note: some voices don't support altering params
+msg.voiceURI = 'native';
+msg.volume = 1; // 0 to 1
+msg.rate = 1; // 0.1 to 10
+msg.pitch = 1; //0 to 2
+msg.text = 'Vou no banheiro, já volto..';
+msg.lang = 'pt-BR';
