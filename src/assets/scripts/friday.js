@@ -1,22 +1,38 @@
-// -----------------------------
+// ----------------------------------------------------------
 // Modules
-// -----------------------------
+// ----------------------------------------------------------
 
+// ----------------
+// Helpers
+// ----------------
+
+import addKeyboardEventListener from './helpers/addKeyboardEventListener';
+
+// ----------------
 // Slides
 // ----------------
+
 import movementsLimit from './slides/movementsLimit';
 import bulletsStatus from './slides/bulletsStatus';
 import createBullets from './slides/createBullets';
 import moveToSpecificPosition from './slides/moveToSpecificPosition';
 import movePositions from './slides/movePositions';
 
-// Helpers
 // ----------------
-import addKeyboardEventListener from './addKeyboardEventListener';
+// Video Tracking
+// ----------------
 
-// -----------------------------
+import videoTracker from './tracking/videoTracker';
+
+// ----------------
+// Speech Synthesis
+// ----------------
+
+import newSynthesis from './speech/newSynthesis';
+
+// ----------------------------------------------------------
 // Slides DOM Elements
-// -----------------------------
+// ----------------------------------------------------------
 
 const allSlides = document.querySelectorAll('.carousel__slide');
 const btnNext = document.getElementById('btnNext');
@@ -85,68 +101,49 @@ addKeyboardEventListener(40, nextSlide);
 addKeyboardEventListener(37, backSlide);
 addKeyboardEventListener(38, backSlide);
 
-// -----------------------------
+
+
+// ----------------------------------------------------------
 // Video DOM Elements
-// -----------------------------
+// ----------------------------------------------------------
 
-const controlTracker = new tracking.ColorTracker(['yellow']);
-
-let move;
-
-controlTracker.on('track', e => {
-
-  if (e.data.length === 0) {
-    move = true;
-  } else {
-    if(move) {
-      if (e.data[0].x < 100) movePositions(1)
-      if (e.data[0].x > 100) movePositions(-1)
-    }
-    move = false;
-  }
-
-  // if (e.data.length === 0) {
-  //   move = true;
-  // } else {
-  //   if(move) {
-  //     if (e.data[0].color === 'magenta') movePositions(1)
-  //     if (e.data[0].color === 'yellow') movePositions(-1)
-  //   }
-  //   move = false;
-  // }
-});
-
-const trackerTask = tracking.track('#camera', controlTracker, { camera: true });
+const camera = document.getElementById('camera');
 
 // -----------------------------
 // Control video Tracker
 // -----------------------------
 
-const camera = document.getElementById('camera');
+const videoTracking = videoTracker('#camera', nextSlide, backSlide);
 
-const startVideo = () => {
+const startVideoTracker = () => {
+  videoTracking.run();
   camera.classList.add('camera--on');
-  trackerTask.run();
 }
 
-const stopVideo = () => {
-  trackerTask.stop();
+const stopVideoTracker = () => {
+  videoTracking.stop();
   camera.classList.remove('camera--on');
 }
 
-stopVideo();
+
+
+// ----------------------------------------------------------
+// Audio DOM Elements
+// ----------------------------------------------------------
+
+const result = document.getElementById('micRes');
+const mic = document.getElementById('mic');
 
 // -----------------------------
-// Audio Tracker
+// Speech Recognition
 // -----------------------------
 
 const SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
+const recognition = new SpeechRecognition({ lang:'pt-BR' });
 
-const recognition = new SpeechRecognition();
-recognition.lang = 'pt-BR';
-
-const result = document.querySelector('#micRes');
-const mic = document.querySelector('#mic');
+// -----------------------------
+// Enable Recognition
+// -----------------------------
 
 mic.addEventListener('click', () => {
   recognition.start();
@@ -154,45 +151,31 @@ mic.addEventListener('click', () => {
   mic.classList.add('mic--on');
 });
 
+// -----------------------------
+// Recognition Commands
+// -----------------------------
+
 recognition.onresult = e => {
-  var res = e.results[0][0].transcript;
+  const input = e.results[0][0].transcript;
 
-  if (res == "Abrir câmera") {
-    startVideo()
-  }
+  if (input == "Abrir câmera") startVideoTracker();
+  if (input == "Fechar câmera") stopVideoTracker();
+  if (input == "avançar") nextSlide();
+  if (input == "voltar") backSlide();
+  if (input == "sexta-feira") synthesis.speak(hello);
 
-  if (res == "Fechar câmera") {
-    stopVideo()
-  }
-
-  if (res == "avançar") {
-    movePositions(1)
-  }
-
-  if (res == "voltar") {
-    movePositions(-1)
-  }
-
-  if (res == "sexta-feira") {
-      synth.speak(msg);
-  }
-
-  result.textContent = res;
+  result.textContent = input;
   mic.classList.remove('mic--on');
 }
 
 // -----------------------------
-// Audio Synthesis
+// Speech Synthesis
 // -----------------------------
 
-const synth = window.speechSynthesis;
+const synthesis = window.speechSynthesis;
 
-var msg = new SpeechSynthesisUtterance();
-var voices = window.speechSynthesis.getVoices();
-msg.voice = voices[10]; // Note: some voices don't support altering params
-msg.voiceURI = 'native';
-msg.volume = 1; // 0 to 1
-msg.rate = 1; // 0.1 to 10
-msg.pitch = 1; //0 to 2
-msg.text = 'Vou no banheiro, já volto..';
-msg.lang = 'pt-BR';
+// -----------------------------
+// Synthesis Speak
+// -----------------------------
+
+const hello = newSynthesis('Olá Afonso, em que posso ajudar?');
