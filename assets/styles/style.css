@@ -8,6 +8,7 @@
   background-color: #000;
   position: relative;
   font-family: 'Roboto', sans-serif;
+  overflow: hidden;
 }
 
 .camera {
@@ -17,6 +18,50 @@
   z-index: 2;
   right: 0;
   bottom: 0;
+  transition: transform .8s;
+  transform: translateY(100%);
+}
+
+.camera--on {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.mic {
+  width: 40px;
+  height: 40px;
+  fill: #fff;
+  z-index: 2;
+  position: absolute;
+  bottom: 50px;
+  left: 20px;
+  background: #000;
+  padding: 10px;
+  border-radius: 50%;
+  box-sizing: content-box;
+  opacity: .7;
+}
+
+.mic--on {
+  opacity: 1;
+  animation: micOn .7s infinite alternate ease-in-out;
+}
+
+@keyframes micOn {
+  to { fill: #fff; }
+  from { fill: red; }
+}
+
+.mic-res {
+  color: #fff;
+  background-color: #000;
+  z-index: 2;
+  position: absolute;
+  bottom: 60px;
+  left: 90px;
+  font-size: 18px;
+  font-weight: 300;
+  padding: 5px 10px;
 }
 
 .carousel {
