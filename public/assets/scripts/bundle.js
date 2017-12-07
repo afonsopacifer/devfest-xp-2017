@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 6);
+/******/ 	return __webpack_require__(__webpack_require__.s = 8);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -121,7 +121,26 @@ var movementsLimit = function movementsLimit(states, btnBack, btnNext) {
 exports.default = movementsLimit;
 
 /***/ }),
-/* 2 */,
+/* 2 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var addKeyboardEventListener = function addKeyboardEventListener(btnCode, cb) {
+
+  window.addEventListener('keydown', function (e) {
+    var pressButton = e.which == btnCode || e.keyCode == btnCode;
+    if (pressButton) cb();
+  });
+};
+
+exports.default = addKeyboardEventListener;
+
+/***/ }),
 /* 3 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -138,7 +157,7 @@ var createBullets = function createBullets(allSlides) {
 
     if (i === 0) li.classList.add('bullet--active');
 
-    li.innerHTML = '\n      <button class="bullet__button">\n        <svg  class="bullet__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\n          <title>Avan\xE7ar para a ' + (i + 1) + '\xB0 not\xEDcia</title>\n          <circle cx="12" cy="12" r="12"/>\n        </svg>\n      </button>\n    ';
+    li.innerHTML = '\n      <button class="bullet__button">\n        <svg  class="bullet__svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">\n          <title>Avan\xE7ar para o ' + (i + 1) + '\xB0 slide</title>\n          <circle cx="12" cy="12" r="12"/>\n        </svg>\n      </button>\n    ';
 
     carouselBullets.appendChild(li);
   });
@@ -251,7 +270,66 @@ exports.default = moveToSpecificPosition;
 "use strict";
 
 
-var _addKeyboardEventListener = __webpack_require__(7);
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var newSynthesis = function newSynthesis(text) {
+
+  var msg = new SpeechSynthesisUtterance();
+
+  msg.voiceURI = 'native';
+  msg.volume = 1; // 0 to 1
+  msg.rate = 1; // 0.1 to 10
+  msg.pitch = 1; //0 to 2
+  msg.text = text;
+  msg.lang = 'pt-BR';
+
+  return msg;
+};
+
+exports.default = newSynthesis;
+
+/***/ }),
+/* 7 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var videoTracker = function videoTracker(videoElementId, cb1, cb2) {
+  var controlTracker = new tracking.ColorTracker(['magenta', 'yellow']);
+
+  var move = void 0;
+
+  controlTracker.on('track', function (e) {
+
+    if (e.data.length === 0) {
+      move = true;
+    } else {
+      if (move) {
+        if (e.data[0].color === 'magenta') cb1();
+        if (e.data[0].color === 'yellow') cb2();
+      }
+      move = false;
+    }
+  });
+
+  return tracking.track(videoElementId, controlTracker, { camera: true });
+};
+
+exports.default = videoTracker;
+
+/***/ }),
+/* 8 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+var _addKeyboardEventListener = __webpack_require__(2);
 
 var _addKeyboardEventListener2 = _interopRequireDefault(_addKeyboardEventListener);
 
@@ -275,11 +353,11 @@ var _movePositions = __webpack_require__(4);
 
 var _movePositions2 = _interopRequireDefault(_movePositions);
 
-var _videoTracker = __webpack_require__(11);
+var _videoTracker = __webpack_require__(7);
 
 var _videoTracker2 = _interopRequireDefault(_videoTracker);
 
-var _newSynthesis = __webpack_require__(10);
+var _newSynthesis = __webpack_require__(6);
 
 var _newSynthesis2 = _interopRequireDefault(_newSynthesis);
 
@@ -417,6 +495,7 @@ mic.addEventListener('click', function () {
   recognition.start();
   result.style = 'display: block;';
   mic.classList.add('mic--on');
+  beep.play();
 });
 
 // -----------------------------
@@ -448,86 +527,11 @@ var synthesis = window.speechSynthesis;
 
 var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar?');
 
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
+// -----------------------------
+// Audio
+// -----------------------------
 
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var addKeyboardEventListener = function addKeyboardEventListener(btnCode, cb) {
-
-  window.addEventListener('keydown', function (e) {
-    var pressButton = e.which == btnCode || e.keyCode == btnCode;
-    if (pressButton) cb();
-  });
-};
-
-exports.default = addKeyboardEventListener;
-
-/***/ }),
-/* 8 */,
-/* 9 */,
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var newSynthesis = function newSynthesis(text) {
-
-  var msg = new SpeechSynthesisUtterance();
-
-  msg.voiceURI = 'native';
-  msg.volume = 1; // 0 to 1
-  msg.rate = 1; // 0.1 to 10
-  msg.pitch = 1; //0 to 2
-  msg.text = text;
-  msg.lang = 'pt-BR';
-
-  return msg;
-};
-
-exports.default = newSynthesis;
-
-/***/ }),
-/* 11 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-var videoTracker = function videoTracker(videoElementId, cb1, cb2) {
-  var controlTracker = new tracking.ColorTracker(['magenta', 'yellow']);
-
-  var move = void 0;
-
-  controlTracker.on('track', function (e) {
-
-    if (e.data.length === 0) {
-      move = true;
-    } else {
-      if (move) {
-        if (e.data[0].color === 'magenta') cb1();
-        if (e.data[0].color === 'yellow') cb2();
-      }
-      move = false;
-    }
-  });
-
-  return tracking.track(videoElementId, controlTracker, { camera: true });
-};
-
-exports.default = videoTracker;
+var beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
 
 /***/ })
 /******/ ]);

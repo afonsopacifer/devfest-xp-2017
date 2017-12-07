@@ -149,6 +149,7 @@ mic.addEventListener('click', () => {
   recognition.start();
   result.style = 'display: block;';
   mic.classList.add('mic--on');
+  beep.play();
 });
 
 // -----------------------------
@@ -179,3 +180,9 @@ const synthesis = window.speechSynthesis;
 // -----------------------------
 
 const hello = newSynthesis('Olá Afonso, em que posso ajudar?');
+
+// -----------------------------
+// Audio
+// -----------------------------
+
+const beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
