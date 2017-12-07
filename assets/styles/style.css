@@ -2,6 +2,12 @@
   box-sizing: border-box;
 }
 
+/*
+ ----------------
+ carousel
+----------------
+*/
+
 .carousel-container {
   height: 100vh;
   width: 100vw;
@@ -10,6 +16,104 @@
   font-family: 'Roboto', sans-serif;
   overflow: hidden;
 }
+
+.carousel {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  overflow: hidden;
+}
+
+.carousel-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  padding: 5px 20px;
+  text-align: right;
+  background-color: #000;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.carousel__heading {
+  color: #fff;
+  margin: 0;
+  font-size: 18px;
+  margin-right: auto;
+}
+
+.carousel__slide {
+  min-width: 100%;
+  height: 100vh;
+  position: relative;
+  transition: transform .5s;
+}
+
+.carousel__btn {
+  padding: 5px;
+  border: 0;
+  background-color: transparent;
+}
+
+.carousel__btn svg {
+  width: 24px;
+  height: 24px;
+  fill: rgba(255,255,255, 1);
+}
+
+.carousel__btn[disabled] svg {
+  fill: rgba(255,255,255, .5);
+}
+
+.carousel__btn--next {
+  right: 10px;
+}
+
+.carousel__btn--back {
+  left: 10px;
+}
+
+.carousel__bullets {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  padding: 5px 0;
+  text-align: center;
+  background-color: #000;
+}
+
+.bullet {
+  list-style: none;
+  display: inline-block;
+}
+
+.bullet__button {
+  border: 0;
+  background: none;
+  padding: 5px;
+}
+
+.bullet__svg {
+  width: 10px;
+  height: 10px;
+  fill: rgba(255,255,255, .5);
+}
+
+.bullet--active .bullet__svg {
+  fill: rgba(255,255,255, 1);
+}
+
+/*
+ ----------------
+ camera
+----------------
+*/
 
 .camera {
   width: 200px;
@@ -25,6 +129,12 @@
 .camera--on {
   transform: translateY(0);
 }
+
+/*
+ ----------------
+ mic
+----------------
+*/
 
 .mic {
   width: 40px;
@@ -61,108 +171,4 @@
   font-size: 18px;
   font-weight: 300;
   padding: 5px 10px;
-}
-
-.carousel {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  overflow: hidden;
-}
-
-.carousel-header {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  padding: 5px 20px;
-  text-align: right;
-  background-color: #000;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-}
-
-.carousel__heading {
-  color: #fff;
-  margin: 0;
-  font-size: 18px;
-  margin-right: auto;
-}
-
-.carousel__btn {
-  padding: 5px;
-  border: 0;
-  background-color: transparent;
-}
-
-.carousel__btn svg {
-  width: 24px;
-  height: 24px;
-  fill: rgba(255,255,255, 1);
-}
-
-.carousel__btn[disabled] svg {
-  fill: rgba(255,255,255, .5);
-}
-
-.carousel__btn--next {
-  right: 10px;
-}
-
-.carousel__btn--back {
-  left: 10px;
-}
-
-.carousel__slide {
-  min-width: 100%;
-  height: 100vh;
-  position: relative;
-  transition: transform .5s;
-}
-
-.carousel__slide:nth-child(1) {
- background: gold;
-}
-
-.carousel__slide:nth-child(2) {
- background: blue;
-}
-
-.carousel__slide:nth-child(3) {
- background: red;
-}
-
-.carousel__bullets {
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  width: 100%;
-  margin: 0;
-  padding: 5px 0;
-  text-align: center;
-  background-color: #000;
-}
-
-.bullet {
-  list-style: none;
-  display: inline-block;
-}
-
-.bullet__button {
-  border: 0;
-  background: none;
-  padding: 5px;
-}
-
-.bullet__svg {
-  width: 10px;
-  height: 10px;
-  fill: rgba(255,255,255, .5);
-}
-
-.bullet--active .bullet__svg {
-  fill: rgba(255,255,255, 1);
 }
