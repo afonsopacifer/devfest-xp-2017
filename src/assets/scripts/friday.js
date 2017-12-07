@@ -17,6 +17,8 @@ import bulletsStatus from './slides/bulletsStatus';
 import createBullets from './slides/createBullets';
 import moveToSpecificPosition from './slides/moveToSpecificPosition';
 import movePositions from './slides/movePositions';
+import createSlides from './slides/createSlides';
+import slides from './slides';
 
 // ----------------
 // Video Tracking
@@ -34,10 +36,20 @@ import newSynthesis from './speech/newSynthesis';
 // Slides DOM Elements
 // ----------------------------------------------------------
 
-const allSlides = document.querySelectorAll('.carousel__slide');
+const carousel = document.getElementById('carousel');
 const btnNext = document.getElementById('btnNext');
 const btnBack = document.getElementById('btnBack');
 const carouselBullets = document.getElementById('carouselBullets');
+
+
+// -----------------------------
+// Create Slides
+// -----------------------------
+
+createSlides(slides, carousel);
+
+const allSlides = document.querySelectorAll('.carousel__slide');
+
 
 // -----------------------------
 // States
@@ -51,6 +63,8 @@ const state = {
     next: true
   }
 }
+
+
 
 // -----------------------------
 // Create Bullets

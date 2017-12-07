@@ -353,6 +353,14 @@ var _movePositions = __webpack_require__(4);
 
 var _movePositions2 = _interopRequireDefault(_movePositions);
 
+var _createSlides = __webpack_require__(9);
+
+var _createSlides2 = _interopRequireDefault(_createSlides);
+
+var _slides = __webpack_require__(10);
+
+var _slides2 = _interopRequireDefault(_slides);
+
 var _videoTracker = __webpack_require__(7);
 
 var _videoTracker2 = _interopRequireDefault(_videoTracker);
@@ -379,7 +387,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 // Helpers
 // ----------------
 
-var allSlides = document.querySelectorAll('.carousel__slide');
+var carousel = document.getElementById('carousel');
 
 // ----------------
 // Speech Synthesis
@@ -392,6 +400,14 @@ var allSlides = document.querySelectorAll('.carousel__slide');
 var btnNext = document.getElementById('btnNext');
 var btnBack = document.getElementById('btnBack');
 var carouselBullets = document.getElementById('carouselBullets');
+
+// -----------------------------
+// Create Slides
+// -----------------------------
+
+(0, _createSlides2.default)(_slides2.default, carousel);
+
+var allSlides = document.querySelectorAll('.carousel__slide');
 
 // -----------------------------
 // States
@@ -532,6 +548,124 @@ var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar?');
 // -----------------------------
 
 var beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+
+/***/ }),
+/* 9 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var createSlides = function createSlides(slides, carousel) {
+
+  slides.forEach(function (slide) {
+
+    var article = document.createElement('article');
+    article.classList.add('carousel__slide');
+
+    switch (slide.type) {
+      case 'list':
+        article.classList.add('carousel__slide--list');
+        break;
+      case 'left':
+        article.classList.add('carousel__slide--left');
+        break;
+      case 'right':
+        article.classList.add('carousel__slide--right');
+        break;
+      case 'bottom':
+        article.classList.add('carousel__slide--bottom');
+        break;
+    }
+
+    if (slide.heading1) {
+      var h1 = document.createElement('h1');
+      h1.classList.add('heading-1');
+      h1.innerHTML = slide.heading1;
+      article.appendChild(h1);
+    }
+
+    if (slide.heading2) {
+      var h2 = document.createElement('h2');
+      h2.classList.add('heading-2');
+      h2.innerHTML = slide.heading2;
+      article.appendChild(h2);
+    }
+
+    if (slide.gif) {
+      var gif = document.createElement('img');
+      gif.classList.add('gif');
+      gif.src = slide.gif;
+      article.appendChild(gif);
+    }
+
+    if (slide.imgRight) {
+      var img = document.createElement('img');
+      img.classList.add('img-right');
+      img.src = slide.imgRight;
+      article.appendChild(img);
+    }
+
+    if (slide.imgLeft) {
+      var _img = document.createElement('img');
+      _img.classList.add('img-left');
+      _img.src = slide.imgLeft;
+      article.appendChild(_img);
+    }
+
+    if (slide.list) {
+      var ul = document.createElement('ul');
+      ul.classList.add('list');
+
+      slide.list.forEach(function (item) {
+        var li = document.createElement('li');
+        li.classList.add('list__item');
+        li.innerHTML = item;
+
+        ul.appendChild(li);
+      });
+
+      article.appendChild(ul);
+    }
+
+    carousel.appendChild(article);
+  });
+};
+
+exports.default = createSlides;
+
+/***/ }),
+/* 10 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var slides = [{
+  type: 'left',
+  heading1: 'Web Components',
+  heading2: 'Make Components for humans',
+  gif: 'https://www.scienceabc.com/wp-content/uploads/2015/12/iron-man-suit.jpg',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: 'list',
+  heading1: 'dlsdlks',
+  heading2: '',
+  gif: '',
+  imgRight: 'http://media.socastsrm.com/wordpress/wp-content/blogs.dir/114/files/2017/07/Iron.jpg',
+  imgLeft: '',
+  list: ['dssadasd', 'bbbbb f fbf b', 'pplp lpl plp lplp']
+}];
+
+exports.default = slides;
 
 /***/ })
 /******/ ]);
