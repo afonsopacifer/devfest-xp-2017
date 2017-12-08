@@ -63,7 +63,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 8);
+/******/ 	return __webpack_require__(__webpack_require__.s = 10);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -150,6 +150,301 @@ exports.default = addKeyboardEventListener;
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
+var slides = [{
+  type: '',
+  heading1: '',
+  heading2: '',
+  img: 'assets/imgs/chrome.png',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Google Chrome',
+  heading2: 'As a platform',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Conversa <br> Sobre Browsers',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Diferentes versões <br> disponíveis',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: 'left',
+  heading1: 'Chromium',
+  heading2: 'Open Source',
+  img: 'assets/imgs/chromium.png',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'O que muda?',
+  heading2: 'Além do número',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Blink',
+  heading2: 'Motor de renderização',
+  gif: '',
+  imgRight: 'assets/imgs/css3.png',
+  imgLeft: 'assets/imgs/html5.png',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'V8',
+  heading2: 'Interpretador',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Porque é importate?',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: 'left',
+  heading1: 'Market Share',
+  heading2: 'Desktop',
+  img: 'assets/imgs/market-share.png',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Sistema Operacional',
+  heading2: 'Mais usado no mundo?',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Plataforma',
+  heading2: 'Para Desenvolvedores',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Front-End Developer',
+  heading2: 'ou.. Dev Descolado',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'DevTools',
+  heading2: 'Debugging',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Plataforma',
+  heading2: 'Para Aplicações',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Nativo X Híbrido',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Nativo',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['Programa em 3 linguagens', 'O usuário vai na loja e baixa', 'Espera instalar', 'Não usa no Desktop', 'E… desinstala']
+}, {
+  type: 'list',
+  heading1: 'Híbrido',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['Programa no estilo Front-End', 'O usuário vai na loja e baixa', 'Espera instalar', 'Abre uma WebView', 'APPs diferentes p Desktop e mobile', 'E… desinstala']
+}, {
+  type: '',
+  heading1: 'Web APP',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['Programa no estilo Front-End', '', '']
+}, {
+  type: '',
+  heading1: 'Offline First',
+  heading2: 'Com Service Workers',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Web APP',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['Programa no estilo Front-End', 'Já é offline', '']
+}, {
+  type: '',
+  heading1: 'Instalável',
+  heading2: 'Com Web App Manifest',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Web APP',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['Programa no estilo Front-End', 'Já é offline', 'O usuário Installa se quiser']
+}, {
+  type: '',
+  heading1: 'Plataforma',
+  heading2: 'Desktop + Mobile',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Web APP',
+  heading2: '',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['Programa no estilo Front-End', 'Já é offline', 'O usuário Installa se quiser', 'Onde quiser']
+}, {
+  type: '',
+  heading1: 'O que dá para fazer?',
+  heading2: 'Com apenas* HTML, CSS e JS',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Web APIs',
+  heading2: 'Hora da maldade',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'GetUserMedia',
+  heading2: 'Acesso a câmera',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Ambient Light',
+  heading2: 'Bruxaria',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Web GL',
+  heading2: 'Modelagem 3D',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Web VR',
+  heading2: 'Realidade Virtual',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Mais…',
+  heading2: 'Muito mais',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Onde estudar?',
+  heading2: 'Chrome Developers',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Front-End Brasil',
+  heading2: 'Fórum, Vagas e mais :)',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}, {
+  type: '',
+  heading1: 'Esquece o chrome',
+  heading2: 'Vá além com a WEB',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', '']
+}];
+
+exports.default = slides;
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
 var createBullets = function createBullets(allSlides) {
   allSlides.forEach(function (el, i) {
     var li = document.createElement('li');
@@ -166,7 +461,102 @@ var createBullets = function createBullets(allSlides) {
 exports.default = createBullets;
 
 /***/ }),
-/* 4 */
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+var createSlides = function createSlides(slides, carousel) {
+
+  slides.forEach(function (slide) {
+
+    var article = document.createElement('article');
+    article.classList.add('carousel__slide');
+
+    switch (slide.type) {
+      case 'list':
+        article.classList.add('carousel__slide--list');
+        break;
+      case 'left':
+        article.classList.add('carousel__slide--left');
+        break;
+      case 'right':
+        article.classList.add('carousel__slide--right');
+        break;
+      case 'bottom':
+        article.classList.add('carousel__slide--bottom');
+        break;
+    }
+
+    if (slide.heading1) {
+      var h1 = document.createElement('h1');
+      h1.classList.add('heading-1');
+      h1.innerHTML = slide.heading1;
+      article.appendChild(h1);
+    }
+
+    if (slide.heading2) {
+      var h2 = document.createElement('h2');
+      h2.classList.add('heading-2');
+      h2.innerHTML = slide.heading2;
+      article.appendChild(h2);
+    }
+
+    if (slide.gif) {
+      var gif = document.createElement('img');
+      gif.classList.add('gif');
+      gif.src = slide.gif;
+      article.appendChild(gif);
+    }
+
+    if (slide.imgRight) {
+      var img = document.createElement('img');
+      img.classList.add('img-right');
+      img.src = slide.imgRight;
+      article.appendChild(img);
+    }
+
+    if (slide.imgLeft) {
+      var _img = document.createElement('img');
+      _img.classList.add('img-left');
+      _img.src = slide.imgLeft;
+      article.appendChild(_img);
+    }
+
+    if (slide.img) {
+      var _img2 = document.createElement('img');
+      _img2.classList.add('img');
+      _img2.src = slide.img;
+      article.appendChild(_img2);
+    }
+
+    if (slide.list) {
+      var ul = document.createElement('ul');
+      ul.classList.add('list');
+
+      slide.list.forEach(function (item) {
+        var li = document.createElement('li');
+        li.classList.add('list__item');
+        li.innerHTML = item;
+
+        ul.appendChild(li);
+      });
+
+      article.appendChild(ul);
+    }
+
+    carousel.appendChild(article);
+  });
+};
+
+exports.default = createSlides;
+
+/***/ }),
+/* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -227,7 +617,7 @@ var movePositions = function movePositions(value, state, allSlides, allBullets, 
 exports.default = movePositions;
 
 /***/ }),
-/* 5 */
+/* 7 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -264,7 +654,7 @@ var moveToSpecificPosition = function moveToSpecificPosition(value, states, allS
 exports.default = moveToSpecificPosition;
 
 /***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -290,7 +680,7 @@ var newSynthesis = function newSynthesis(text) {
 exports.default = newSynthesis;
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -323,7 +713,7 @@ var videoTracker = function videoTracker(videoElementId, cb1, cb2) {
 exports.default = videoTracker;
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -341,31 +731,31 @@ var _bulletsStatus = __webpack_require__(0);
 
 var _bulletsStatus2 = _interopRequireDefault(_bulletsStatus);
 
-var _createBullets = __webpack_require__(3);
+var _createBullets = __webpack_require__(4);
 
 var _createBullets2 = _interopRequireDefault(_createBullets);
 
-var _moveToSpecificPosition = __webpack_require__(5);
+var _moveToSpecificPosition = __webpack_require__(7);
 
 var _moveToSpecificPosition2 = _interopRequireDefault(_moveToSpecificPosition);
 
-var _movePositions = __webpack_require__(4);
+var _movePositions = __webpack_require__(6);
 
 var _movePositions2 = _interopRequireDefault(_movePositions);
 
-var _createSlides = __webpack_require__(9);
+var _createSlides = __webpack_require__(5);
 
 var _createSlides2 = _interopRequireDefault(_createSlides);
 
-var _slides = __webpack_require__(10);
+var _slides = __webpack_require__(3);
 
 var _slides2 = _interopRequireDefault(_slides);
 
-var _videoTracker = __webpack_require__(7);
+var _videoTracker = __webpack_require__(9);
 
 var _videoTracker2 = _interopRequireDefault(_videoTracker);
 
-var _newSynthesis = __webpack_require__(6);
+var _newSynthesis = __webpack_require__(8);
 
 var _newSynthesis2 = _interopRequireDefault(_newSynthesis);
 
@@ -507,12 +897,21 @@ var recognition = new SpeechRecognition({ lang: 'pt-BR' });
 // Enable Recognition
 // -----------------------------
 
-mic.addEventListener('click', function () {
+var enableRecognition = function enableRecognition() {
   recognition.start();
   result.style = 'display: block;';
   mic.classList.add('mic--on');
   beep.play();
-});
+};
+
+var disableRecognition = function disableRecognition() {
+  recognition.stop();
+  result.style = 'display: none;';
+  mic.classList.remove('mic--on');
+  beep.play();
+};
+
+mic.addEventListener('click', enableRecognition);
 
 // -----------------------------
 // Recognition Commands
@@ -526,6 +925,7 @@ recognition.onresult = function (e) {
   if (input == "avançar") nextSlide();
   if (input == "voltar") backSlide();
   if (input == "sexta-feira") synthesis.speak(hello);
+  if (input == "dinosauro") window.open('https://chromedino.com/', '_blank');
 
   result.textContent = input;
   mic.classList.remove('mic--on');
@@ -541,7 +941,7 @@ var synthesis = window.speechSynthesis;
 // Synthesis Speak
 // -----------------------------
 
-var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar?');
+var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar lequi?');
 
 // -----------------------------
 // Audio
@@ -549,123 +949,38 @@ var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar?');
 
 var beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
 
-/***/ }),
-/* 9 */
-/***/ (function(module, exports, __webpack_require__) {
+// -----------------------------
+// Gamepad
+// -----------------------------
 
-"use strict";
+var gamepad = new Gamepad();
 
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+gamepad.on('connect', function (e) {
+  console.log('controller ' + e.index + ' connected!');
+  beep.play();
 });
-var createSlides = function createSlides(slides, carousel) {
 
-  slides.forEach(function (slide) {
-
-    var article = document.createElement('article');
-    article.classList.add('carousel__slide');
-
-    switch (slide.type) {
-      case 'list':
-        article.classList.add('carousel__slide--list');
-        break;
-      case 'left':
-        article.classList.add('carousel__slide--left');
-        break;
-      case 'right':
-        article.classList.add('carousel__slide--right');
-        break;
-      case 'bottom':
-        article.classList.add('carousel__slide--bottom');
-        break;
-    }
-
-    if (slide.heading1) {
-      var h1 = document.createElement('h1');
-      h1.classList.add('heading-1');
-      h1.innerHTML = slide.heading1;
-      article.appendChild(h1);
-    }
-
-    if (slide.heading2) {
-      var h2 = document.createElement('h2');
-      h2.classList.add('heading-2');
-      h2.innerHTML = slide.heading2;
-      article.appendChild(h2);
-    }
-
-    if (slide.gif) {
-      var gif = document.createElement('img');
-      gif.classList.add('gif');
-      gif.src = slide.gif;
-      article.appendChild(gif);
-    }
-
-    if (slide.imgRight) {
-      var img = document.createElement('img');
-      img.classList.add('img-right');
-      img.src = slide.imgRight;
-      article.appendChild(img);
-    }
-
-    if (slide.imgLeft) {
-      var _img = document.createElement('img');
-      _img.classList.add('img-left');
-      _img.src = slide.imgLeft;
-      article.appendChild(_img);
-    }
-
-    if (slide.list) {
-      var ul = document.createElement('ul');
-      ul.classList.add('list');
-
-      slide.list.forEach(function (item) {
-        var li = document.createElement('li');
-        li.classList.add('list__item');
-        li.innerHTML = item;
-
-        ul.appendChild(li);
-      });
-
-      article.appendChild(ul);
-    }
-
-    carousel.appendChild(article);
-  });
-};
-
-exports.default = createSlides;
-
-/***/ }),
-/* 10 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
+gamepad.on('press', 'button_3', function () {
+  return startVideoTracker();
 });
-var slides = [{
-  type: 'left',
-  heading1: 'Web Components',
-  heading2: 'Make Components for humans',
-  gif: 'https://www.scienceabc.com/wp-content/uploads/2015/12/iron-man-suit.jpg',
-  imgRight: '',
-  imgLeft: '',
-  list: ['', '', '']
-}, {
-  type: 'list',
-  heading1: 'dlsdlks',
-  heading2: '',
-  gif: '',
-  imgRight: 'http://media.socastsrm.com/wordpress/wp-content/blogs.dir/114/files/2017/07/Iron.jpg',
-  imgLeft: '',
-  list: ['dssadasd', 'bbbbb f fbf b', 'pplp lpl plp lplp']
-}];
-
-exports.default = slides;
+gamepad.on('press', 'button_2', function () {
+  return stopVideoTracker();
+});
+gamepad.on('press', 'button_4', function () {
+  return backSlide();
+});
+gamepad.on('press', 'button_1', function () {
+  return nextSlide();
+});
+gamepad.on('press', 'shoulder_top_left', function () {
+  return enableRecognition();
+});
+gamepad.on('press', 'shoulder_top_right', function () {
+  return disableRecognition();
+});
+gamepad.on('press', 'start', function () {
+  return window.open('https://chromedino.com/', '_blank');
+});
 
 /***/ })
 /******/ ]);

@@ -159,12 +159,21 @@ const recognition = new SpeechRecognition({ lang:'pt-BR' });
 // Enable Recognition
 // -----------------------------
 
-mic.addEventListener('click', () => {
+const enableRecognition = () => {
   recognition.start();
   result.style = 'display: block;';
   mic.classList.add('mic--on');
   beep.play();
-});
+}
+
+const disableRecognition = () => {
+  recognition.stop();
+  result.style = 'display: none;';
+  mic.classList.remove('mic--on');
+  beep.play();
+}
+
+mic.addEventListener('click', enableRecognition);
 
 // -----------------------------
 // Recognition Commands
@@ -178,6 +187,7 @@ recognition.onresult = e => {
   if (input == "avançar") nextSlide();
   if (input == "voltar") backSlide();
   if (input == "sexta-feira") synthesis.speak(hello);
+  if (input == "dinosauro") window.open('https://chromedino.com/', '_blank');
 
   result.textContent = input;
   mic.classList.remove('mic--on');
@@ -193,10 +203,29 @@ const synthesis = window.speechSynthesis;
 // Synthesis Speak
 // -----------------------------
 
-const hello = newSynthesis('Olá Afonso, em que posso ajudar?');
+const hello = newSynthesis('Olá Afonso, em que posso ajudar lequi?');
 
 // -----------------------------
 // Audio
 // -----------------------------
 
 const beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+
+// -----------------------------
+// Gamepad
+// -----------------------------
+
+const gamepad = new Gamepad();
+
+gamepad.on('connect', e => {
+  console.log(`controller ${e.index} connected!`);
+  beep.play();
+});
+
+gamepad.on('press', 'button_3', () => startVideoTracker());
+gamepad.on('press', 'button_2', () => stopVideoTracker());
+gamepad.on('press', 'button_4', () => backSlide());
+gamepad.on('press', 'button_1', () => nextSlide());
+gamepad.on('press', 'shoulder_top_left', () => enableRecognition());
+gamepad.on('press', 'shoulder_top_right', () => disableRecognition());
+gamepad.on('press', 'start', () => window.open('https://chromedino.com/', '_blank'));

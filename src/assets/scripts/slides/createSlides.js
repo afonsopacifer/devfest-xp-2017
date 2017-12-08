@@ -55,6 +55,13 @@ const createSlides = (slides, carousel) => {
       article.appendChild(img);
     }
 
+    if (slide.img) {
+      const img = document.createElement('img');
+      img.classList.add('img');
+      img.src = slide.img;
+      article.appendChild(img);
+    }
+
     if (slide.list) {
       const ul = document.createElement('ul');
       ul.classList.add('list');
