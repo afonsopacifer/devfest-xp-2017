@@ -78,6 +78,18 @@ const createSlides = (slides, carousel) => {
 
     }
 
+    if (slide.bgColor) {
+      article.style.setProperty('--bg-color', slide.bgColor);
+    }
+
+    if (slide.primaryColor) {
+      article.style.setProperty('--primary-text-color', slide.primaryColor);
+    }
+
+    if (slide.secondaryColor) {
+      article.style.setProperty('--secondary-text-color', slide.secondaryColor);
+    }
+
     carousel.appendChild(article);
 
   })

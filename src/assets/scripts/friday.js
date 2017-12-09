@@ -187,7 +187,7 @@ recognition.onresult = e => {
   if (input == "avançar") nextSlide();
   if (input == "voltar") backSlide();
   if (input == "sexta-feira") synthesis.speak(hello);
-  if (input == "dinosauro") window.open('https://chromedino.com/', '_blank');
+  if (input == "dinossauro") window.open('https://chromedino.com/', '_blank');
 
   result.textContent = input;
   mic.classList.remove('mic--on');

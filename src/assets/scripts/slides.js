@@ -7,34 +7,71 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#000',
+    primaryColor: '#ff005c',
+    secondaryColor: '#dddddd'
   },
   {
+    type: 'left',
+    heading1: 'Afonso Pacifer',
+    heading2: 'Web Evangelist & Consultant',
+    gif: '',
+    imgRight: 'assets/imgs/me.png',
+    img: 'assets/imgs/afonso.png',
+    list: ['', '', ''],
+    bgColor: '#1e1e1e',
+    primaryColor: '#76f5a8',
+    secondaryColor: '#dddddd'
+  },
+  // {
+  //   type: '',
+  //   heading1: 'Google Chrome',
+  //   heading2: 'As a platform',
+  //   gif: '',
+  //   imgRight: '',
+  //   imgLeft: '',
+  //   list: ['', '', ''],
+  //   bgColor: '#002054',
+  //   primaryColor: '#ff005c',
+  //   secondaryColor: '#dddddd'
+  // },
+  {
     type: '',
-    heading1: 'Google Chrome',
-    heading2: 'As a platform',
+    heading1: 'Conversa',
+    heading2: 'Sobre Browsers',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#ff005c',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
-    heading1: 'Conversa <br> Sobre Browsers',
+    heading1: 'Diferentes versões',
+    heading2: 'disponíveis',
+    gif: '',
+    imgRight: '',
+    imgLeft: '',
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#ff005c',
+    secondaryColor: '#dddddd'
+  },
+  {
+    type: '',
+    heading1: '',
     heading2: '',
+    img: 'assets/imgs/allChrome.png',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
-  },
-  {
-    type: '',
-    heading1: 'Diferentes versões <br> disponíveis',
-    heading2: '',
-    gif: '',
-    imgRight: '',
-    imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#ff005c',
+    secondaryColor: '#dddddd'
   },
   {
     type: 'left',
@@ -43,7 +80,10 @@ const slides = [
     img: 'assets/imgs/chromium.png',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -52,7 +92,10 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#ff005c',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -61,25 +104,34 @@ const slides = [
     gif: '',
     imgRight: 'assets/imgs/css3.png',
     imgLeft: 'assets/imgs/html5.png',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#ff5200',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
     heading1: 'V8',
     heading2: 'Interpretador',
     gif: '',
-    imgRight: '',
-    imgLeft: '',
-    list: ['', '', '']
+    imgRight: 'assets/imgs/js.png',
+    imgLeft: 'assets/imgs/nodejs.png',
+    list: ['', '', ''],
+    bgColor: '#002054',
+    primaryColor: '#f2e02a',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
     heading1: 'Porque é importate?',
-    heading2: '',
+    heading2: 'Eu quero criar aplicações!',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#fafafa',
+    primaryColor: '#ff0063',
+    secondaryColor: '#c0c0c0'
   },
   {
     type: 'left',
@@ -88,7 +140,10 @@ const slides = [
     img: 'assets/imgs/market-share.png',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#fafafa',
+    primaryColor: '#ff0063',
+    secondaryColor: '#c0c0c0'
   },
   {
     type: '',
@@ -97,16 +152,48 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#fafafa',
+    primaryColor: '#ff0063',
+    secondaryColor: '#c0c0c0'
+  },
+  {
+    type: '',
+    heading1: '',
+    heading2: '',
+    img: 'assets/imgs/so.png',
+    gif: '',
+    imgRight: '',
+    imgLeft: '',
+    list: ['', '', ''],
+    bgColor: '#fafafa',
+    primaryColor: '#ff0063',
+    secondaryColor: '#c0c0c0'
+  },
+  {
+    type: '',
+    heading1: '',
+    heading2: '',
+    img: 'assets/imgs/so-chrome.png',
+    gif: '',
+    imgRight: '',
+    imgLeft: '',
+    list: ['', '', ''],
+    bgColor: '#fafafa',
+    primaryColor: '#ff0063',
+    secondaryColor: '#c0c0c0'
   },
   {
     type: '',
     heading1: 'Plataforma',
     heading2: 'Para Desenvolvedores',
     gif: '',
-    imgRight: '',
-    imgLeft: '',
-    list: ['', '', '']
+    imgRight: 'assets/imgs/tech.png',
+    imgLeft: 'assets/imgs/chrome-side.png',
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -115,7 +202,10 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -124,7 +214,10 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -133,34 +226,58 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
     heading1: 'Nativo X Híbrido',
     heading2: '',
     gif: '',
-    imgRight: '',
-    imgLeft: '',
-    list: ['', '', '']
+    imgRight: 'assets/imgs/hibrido.png',
+    imgLeft: 'assets/imgs/native.png',
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
-    type: '',
+    type: 'list',
     heading1: 'Nativo',
     heading2: '',
     gif: '',
-    imgRight: '',
+    imgRight: 'assets/imgs/native.png',
     imgLeft: '',
-    list: ['Programa em 3 linguagens', 'O usuário vai na loja e baixa', 'Espera instalar', 'Não usa no Desktop', 'E… desinstala']
+    list: ['Programa em 3 linguagens', 'O usuário vai na loja e baixa', 'Espera instalar', 'Não usa no Desktop ou mobile', '*Depende de internet', 'E… desinstala'],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: 'list',
     heading1: 'Híbrido',
     heading2: '',
     gif: '',
+    imgRight: 'assets/imgs/hibrido.png',
+    imgLeft: '',
+    list: ['Programa no estilo Front-End', 'O usuário vai na loja e baixa', 'Espera instalar', 'Abre uma WebView', 'APPs diferentes p Desktop e mobile', '*Depende de internet', 'E… desinstala'],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
+  },
+  {
+    type: '',
+    heading1: 'Web APP',
+    heading2: 'ou Progressive Web APP (PWA)',
+    gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['Programa no estilo Front-End', 'O usuário vai na loja e baixa', 'Espera instalar', 'Abre uma WebView', 'APPs diferentes p Desktop e mobile', 'E… desinstala']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -169,16 +286,23 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['Programa no estilo Front-End', '', '']
+    list: ['Programa no estilo Front-End', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
-    type: '',
+    type: 'left',
     heading1: 'Offline First',
     heading2: 'Com Service Workers',
+    img: 'assets/imgs/offline.gif',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -187,16 +311,22 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['Programa no estilo Front-End', 'Já é offline', '']
+    list: ['Programa no estilo Front-End', 'Já é offline', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
-    type: '',
+    type: 'left',
     heading1: 'Instalável',
     heading2: 'Com Web App Manifest',
     gif: '',
-    imgRight: '',
+    img: 'assets/imgs/manifest.gif',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -205,16 +335,23 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['Programa no estilo Front-End', 'Já é offline', 'O usuário Installa se quiser']
+    list: ['Programa no estilo Front-End', 'Já é offline', 'O usuário Installa se quiser'],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
-    type: '',
+    type: 'left',
     heading1: 'Plataforma',
     heading2: 'Desktop + Mobile',
     gif: '',
+    img: 'assets/imgs/so-chrome.png',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -223,7 +360,10 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['Programa no estilo Front-End', 'Já é offline', 'O usuário Installa se quiser', 'Onde quiser']
+    list: ['Programa no estilo Front-End', 'Já é offline', 'O usuário Installa se quiser', 'Onde quiser'],
+    bgColor: '#3f3333',
+    primaryColor: '#ff9800',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -232,43 +372,58 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
-    heading1: 'Web APIs',
-    heading2: 'Hora da maldade',
-    gif: '',
-    imgRight: '',
-    imgLeft: '',
-    list: ['', '', '']
-  },
-  {
-    type: '',
-    heading1: 'GetUserMedia',
+    heading1: 'GetUserMedia API',
     heading2: 'Acesso a câmera',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
-    heading1: 'Ambient Light',
-    heading2: 'Bruxaria',
+    heading1: 'Ambient Light API',
+    heading2: 'Evento luz',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
-    heading1: 'Web GL',
-    heading2: 'Modelagem 3D',
+    heading1: 'Gamepad API',
+    heading2: 'Joystick direto no Browser',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
+  },
+  {
+    type: '',
+    heading1: 'Web Speech API',
+    heading2: 'Assistente virtual',
+    gif: '',
+    imgRight: '',
+    imgLeft: '',
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -277,7 +432,10 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
@@ -286,7 +444,34 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#2a0d3f',
+    primaryColor: '#88fd00',
+    secondaryColor: '#dddddd'
+  },
+  {
+    type: '',
+    heading1: 'Extensões para Chrome',
+    heading2: 'Adicionando features a WEB',
+    gif: '',
+    imgRight: '',
+    imgLeft: '',
+    list: ['', '', ''],
+    bgColor: '#fcbdff',
+    primaryColor: '#12a0c5',
+    secondaryColor: '#4b4b4b'
+  },
+  {
+    type: '',
+    heading1: 'T-Rex Gamepad',
+    heading2: 'Para gamers do momento sem internet',
+    gif: '',
+    imgRight: 'assets/imgs/t-rex.png',
+    imgLeft: 'assets/imgs/joypad.png',
+    list: ['', '', ''],
+    bgColor: '#fcbdff',
+    primaryColor: '#12a0c5',
+    secondaryColor: '#4b4b4b'
   },
   {
     type: '',
@@ -295,25 +480,34 @@ const slides = [
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#440006',
+    primaryColor: '#00bdff',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
-    heading1: 'Front-End Brasil',
-    heading2: 'Fórum, Vagas e mais :)',
+    heading1: 'Follow me',
+    heading2: '@afonsopacifer',
     gif: '',
-    imgRight: '',
-    imgLeft: '',
-    list: ['', '', '']
+    imgRight: 'assets/imgs/octocat.png',
+    imgLeft: 'assets/imgs/twitter.png',
+    list: ['', '', ''],
+    bgColor: '#440006',
+    primaryColor: '#00bdff',
+    secondaryColor: '#dddddd'
   },
   {
     type: '',
-    heading1: 'Esquece o chrome',
+    heading1: 'Obrigado!',
     heading2: 'Vá além com a WEB',
     gif: '',
     imgRight: '',
     imgLeft: '',
-    list: ['', '', '']
+    list: ['', '', ''],
+    bgColor: '#440006',
+    primaryColor: '#00bdff',
+    secondaryColor: '#dddddd'
   }
 ];
 
