@@ -173,7 +173,20 @@ const disableRecognition = () => {
   beep.play();
 }
 
-mic.addEventListener('click', enableRecognition);
+let recognitionState;
+
+const toggleRecognition = () => {
+  if(!recognitionState) {
+    enableRecognition();
+    recognitionState = true;
+  } else {
+    disableRecognition()
+    recognitionState = false;
+  }
+}
+
+
+mic.addEventListener('click', toggleRecognition);
 
 // -----------------------------
 // Recognition Commands
@@ -188,6 +201,10 @@ recognition.onresult = e => {
   if (input == "voltar") backSlide();
   if (input == "sexta-feira") synthesis.speak(hello);
   if (input == "dinossauro") window.open('https://chromedino.com/', '_blank');
+  if (input == "trilha sonora") ironMan.play();
+  if (input == "nativo") synthesis.speak(nativo);
+  if (input == "híbrido") synthesis.speak(hibrido);
+  if (input == "Fala com o pessoal") synthesis.speak(welcome);
 
   result.textContent = input;
   mic.classList.remove('mic--on');
@@ -203,13 +220,18 @@ const synthesis = window.speechSynthesis;
 // Synthesis Speak
 // -----------------------------
 
-const hello = newSynthesis('Olá Afonso, em que posso ajudar lequi?');
+const hello = newSynthesis('Olá Afonso, em que posso ajudar?');
+const nativo = newSynthesis('Não roda em nenhum computador, apenas em algumas versões de Android ou IOS');
+const hibrido = newSynthesis('Você está de sacanagem?');
+const welcome = newSynthesis('Bem Vindos ao Dev Fest XP!');
 
 // -----------------------------
 // Audio
 // -----------------------------
 
 const beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+const ironMan = new Audio('./assets/sounds/ACDC.mp3');
+
 
 // -----------------------------
 // Gamepad

@@ -512,6 +512,17 @@ var slides = [{
   secondaryColor: '#dddddd'
 }, {
   type: '',
+  heading1: 'Web Speech API',
+  heading2: 'Assistente virtual',
+  gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', ''],
+  bgColor: '#2a0d3f',
+  primaryColor: '#88fd00',
+  secondaryColor: '#dddddd'
+}, {
+  type: '',
   heading1: 'Ambient Light API',
   heading2: 'Evento luz',
   gif: '',
@@ -525,17 +536,6 @@ var slides = [{
   type: '',
   heading1: 'Gamepad API',
   heading2: 'Joystick direto no Browser',
-  gif: '',
-  imgRight: '',
-  imgLeft: '',
-  list: ['', '', ''],
-  bgColor: '#2a0d3f',
-  primaryColor: '#88fd00',
-  secondaryColor: '#dddddd'
-}, {
-  type: '',
-  heading1: 'Web Speech API',
-  heading2: 'Assistente virtual',
   gif: '',
   imgRight: '',
   imgLeft: '',
@@ -592,6 +592,17 @@ var slides = [{
   heading1: 'Onde estudar?',
   heading2: 'Chrome Developers',
   gif: '',
+  imgRight: '',
+  imgLeft: '',
+  list: ['', '', ''],
+  bgColor: '#440006',
+  primaryColor: '#00bdff',
+  secondaryColor: '#dddddd'
+}, {
+  type: '',
+  heading1: '',
+  heading2: '',
+  img: 'assets/imgs/castshow.png',
   imgRight: '',
   imgLeft: '',
   list: ['', '', ''],
@@ -1112,7 +1123,19 @@ var disableRecognition = function disableRecognition() {
   beep.play();
 };
 
-mic.addEventListener('click', enableRecognition);
+var recognitionState = void 0;
+
+var toggleRecognition = function toggleRecognition() {
+  if (!recognitionState) {
+    enableRecognition();
+    recognitionState = true;
+  } else {
+    disableRecognition();
+    recognitionState = false;
+  }
+};
+
+mic.addEventListener('click', toggleRecognition);
 
 // -----------------------------
 // Recognition Commands
@@ -1127,6 +1150,10 @@ recognition.onresult = function (e) {
   if (input == "voltar") backSlide();
   if (input == "sexta-feira") synthesis.speak(hello);
   if (input == "dinossauro") window.open('https://chromedino.com/', '_blank');
+  if (input == "trilha sonora") ironMan.play();
+  if (input == "nativo") synthesis.speak(nativo);
+  if (input == "híbrido") synthesis.speak(hibrido);
+  if (input == "Fala com o pessoal") synthesis.speak(welcome);
 
   result.textContent = input;
   mic.classList.remove('mic--on');
@@ -1142,13 +1169,17 @@ var synthesis = window.speechSynthesis;
 // Synthesis Speak
 // -----------------------------
 
-var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar lequi?');
+var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar?');
+var nativo = (0, _newSynthesis2.default)('Não roda em nenhum computador, apenas em algumas versões de Android ou IOS');
+var hibrido = (0, _newSynthesis2.default)('Você está de sacanagem?');
+var welcome = (0, _newSynthesis2.default)('Bem Vindos ao Dev Fest XP!');
 
 // -----------------------------
 // Audio
 // -----------------------------
 
 var beep = new Audio('https://actions.google.com/sounds/v1/alarms/beep_short.ogg');
+var ironMan = new Audio('./assets/sounds/ACDC.mp3');
 
 // -----------------------------
 // Gamepad
