@@ -5,21 +5,9 @@
 */
 
 /*body {
-  --bg-color:;
-  --primary-text-color:;
-  --secondary-text-color:;
-
-  --bg-color--left:;
-  --primary-text-color--left:;
-  --secondary-text-color--left:;
-
-  --bg-color--right:;
-  --primary-text-color--right:;
-  --secondary-text-color--right:;
-
-  --bg-color--bottom:;
-  --primary-text-color--bottom:;
-  --secondary-text-color--bottom:;
+  --bg-color: purple;
+  --primary-text-color: magenta;
+  --secondary-text-color: cyan;
 }*/
 
 /*
@@ -37,7 +25,7 @@
   background: var(--bg-color, #fff)
 }
 
-.carousel__slide--left {
+/*.carousel__slide--left {
   background: var(--bg-color--left, #fff)
 }
 
@@ -47,10 +35,10 @@
 
 .carousel__slide--bottom {
   background: var(--bg-color--bottom, #fff)
-}
+}*/
 
 .carousel__slide--list {
-  background: var(--bg-color--slide, #fff);
+  /*background: var(--bg-color--slide, #fff);*/
   align-items: flex-start;
   padding-left: 100px;
 }
@@ -87,16 +75,16 @@
   left: 30px;
   font-size: 70px;
   transform: rotate(-15deg);
-  color: var(--primary-text-color--left, #000);
+  /*color: var(--primary-text-color--left, #000);*/
 }
 
 .carousel__slide--left .heading-2 {
   position: absolute;
-  top: 190px;
-  left: 30px;
+  top: 210px;
+  left: 40px;
   font-size: 40px;
   transform: rotate(-15deg);
-  color: var(--secondary-text-color--left, #000);
+  /*color: var(--secondary-text-color--left, #000);*/
 }
 
 .carousel__slide--right .heading-1 {
@@ -105,7 +93,7 @@
   right: 30px;
   font-size: 70px;
   transform: rotate(15deg);
-  color: var(--primary-text-color--right, #000);
+  /*color: var(--primary-text-color--right, #000);*/
 }
 
 .carousel__slide--right .heading-2 {
@@ -114,7 +102,7 @@
   right: 30px;
   font-size: 40px;
   transform: rotate(15deg);
-  color: var(--secondary-text-color--right, #000);
+  /*color: var(--secondary-text-color--right, #000);*/
 }
 
 .carousel__slide--bottom .heading-1 {
@@ -123,7 +111,7 @@
   right: 30px;
   font-size: 70px;
   transform: rotate(-15deg);
-  color: var(--primary-text-color--bottom, #000);
+  /*color: var(--primary-text-color--bottom, #000);*/
 }
 
 .carousel__slide--bottom .heading-2 {
@@ -132,7 +120,7 @@
   right: 30px;
   font-size: 40px;
   transform: rotate(-15deg);
-  color: var(--secondary-text-color--bottom, #000);
+  /*color: var(--secondary-text-color--bottom, #000);*/
 }
 
 /*
