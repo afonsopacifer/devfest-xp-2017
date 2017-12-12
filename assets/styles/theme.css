@@ -1,17 +1,5 @@
 /*
  ----------------
- Colors
-----------------
-*/
-
-/*body {
-  --bg-color: purple;
-  --primary-text-color: magenta;
-  --secondary-text-color: cyan;
-}*/
-
-/*
- ----------------
  Slides
 ----------------
 */
@@ -24,18 +12,6 @@
   flex-direction: column;
   background: var(--bg-color, #fff)
 }
-
-/*.carousel__slide--left {
-  background: var(--bg-color--left, #fff)
-}
-
-.carousel__slide--right {
-  background: var(--bg-color--right, #fff)
-}
-
-.carousel__slide--bottom {
-  background: var(--bg-color--bottom, #fff)
-}*/
 
 .carousel__slide--list {
   /*background: var(--bg-color--slide, #fff);*/

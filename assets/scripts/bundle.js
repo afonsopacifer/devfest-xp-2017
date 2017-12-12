@@ -1068,6 +1068,8 @@ btnBack.addEventListener('click', function () {
 (0, _addKeyboardEventListener2.default)(40, nextSlide);
 (0, _addKeyboardEventListener2.default)(37, backSlide);
 (0, _addKeyboardEventListener2.default)(38, backSlide);
+(0, _addKeyboardEventListener2.default)(33, nextSlide);
+(0, _addKeyboardEventListener2.default)(34, backSlide);
 
 // ----------------------------------------------------------
 // Video DOM Elements
@@ -1151,9 +1153,10 @@ recognition.onresult = function (e) {
   if (input == "sexta-feira") synthesis.speak(hello);
   if (input == "dinossauro") window.open('https://chromedino.com/', '_blank');
   if (input == "trilha sonora") ironMan.play();
-  if (input == "nativo") synthesis.speak(nativo);
+  if (input == "Nativo") synthesis.speak(nativo);
   if (input == "híbrido") synthesis.speak(hibrido);
-  if (input == "Fala com o pessoal") synthesis.speak(welcome);
+  if (input == "fala com o pessoal") synthesis.speak(welcome);
+  if (input == "piada") synthesis.speak(piada);
 
   result.textContent = input;
   mic.classList.remove('mic--on');
@@ -1170,9 +1173,10 @@ var synthesis = window.speechSynthesis;
 // -----------------------------
 
 var hello = (0, _newSynthesis2.default)('Olá Afonso, em que posso ajudar?');
-var nativo = (0, _newSynthesis2.default)('Não roda em nenhum computador, apenas em algumas versões de Android ou IOS');
-var hibrido = (0, _newSynthesis2.default)('Você está de sacanagem?');
+var nativo = (0, _newSynthesis2.default)('Não roda em nenhum computador, apenas em algumas versões de Android ou I O S');
+var hibrido = (0, _newSynthesis2.default)('Você está de sacanagem comigo?');
 var welcome = (0, _newSynthesis2.default)('Bem Vindos ao Dev Fest XP!');
+var piada = (0, _newSynthesis2.default)('O b\xEAbado atravessa a rua com o farol fechado\ne um carro passa e buzina "BIBI"...\nO b\xEAbado olha para o carro e diz:\n"EU TAMB\xC9M BIBI E MUITO..."');
 
 // -----------------------------
 // Audio
