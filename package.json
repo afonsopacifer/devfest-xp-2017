@@ -4,7 +4,7 @@
   "description": "",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "deploy": "git push origin `git subtree split --prefix app master`:gh-pages --force"
+    "deploy": "git push origin `git subtree split --prefix public master`:gh-pages --force"
   },
   "author": "afonsopacifer",
   "license": "MIT",
