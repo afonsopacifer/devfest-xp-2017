@@ -110,12 +110,13 @@ btnBack.addEventListener('click', () => backSlide());
 // Keyboard
 // -----------------------------
 
+addKeyboardEventListener(33, nextSlide);
 addKeyboardEventListener(39, nextSlide);
 addKeyboardEventListener(40, nextSlide);
+
+addKeyboardEventListener(34, backSlide);
 addKeyboardEventListener(37, backSlide);
 addKeyboardEventListener(38, backSlide);
-
-
 
 // ----------------------------------------------------------
 // Video DOM Elements
@@ -138,8 +139,6 @@ const stopVideoTracker = () => {
   videoTracking.stop();
   camera.classList.remove('camera--on');
 }
-
-
 
 // ----------------------------------------------------------
 // Audio DOM Elements
@@ -185,7 +184,6 @@ const toggleRecognition = () => {
   }
 }
 
-
 mic.addEventListener('click', toggleRecognition);
 
 // -----------------------------
@@ -202,9 +200,11 @@ recognition.onresult = e => {
   if (input == "sexta-feira") synthesis.speak(hello);
   if (input == "dinossauro") window.open('https://chromedino.com/', '_blank');
   if (input == "trilha sonora") ironMan.play();
-  if (input == "nativo") synthesis.speak(nativo);
+  if (input == "Nativo") synthesis.speak(nativo);
   if (input == "híbrido") synthesis.speak(hibrido);
-  if (input == "Fala com o pessoal") synthesis.speak(welcome);
+  if (input == "fala com o pessoal") synthesis.speak(welcome);
+  if (input == "piada") synthesis.speak(piada);
+
 
   result.textContent = input;
   mic.classList.remove('mic--on');
@@ -221,9 +221,13 @@ const synthesis = window.speechSynthesis;
 // -----------------------------
 
 const hello = newSynthesis('Olá Afonso, em que posso ajudar?');
-const nativo = newSynthesis('Não roda em nenhum computador, apenas em algumas versões de Android ou IOS');
-const hibrido = newSynthesis('Você está de sacanagem?');
+const nativo = newSynthesis('Não roda em nenhum computador, apenas em algumas versões de Android ou I O S');
+const hibrido = newSynthesis('Você está de sacanagem comigo?');
 const welcome = newSynthesis('Bem Vindos ao Dev Fest XP!');
+const piada = newSynthesis(`O bêbado atravessa a rua com o farol fechado
+e um carro passa e buzina "BIBI"...
+O bêbado olha para o carro e diz:
+"EU TAMBÉM BIBI E MUITO..."`);
 
 // -----------------------------
 // Audio
