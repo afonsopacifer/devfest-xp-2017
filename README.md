@@ -7,7 +7,7 @@
 ## Gamepad control
 <br>
 
-![Joystick controls](https://media.giphy.com/media/xT0xeJVWx2R1sWKHN6/giphy.gif)
+![Joystick controls](docs/joypad.gif)
 
 **Available gamepad commands:**
 
@@ -24,7 +24,7 @@
 ## Voice control
 <br>
 
-![Audio controls](https://media.giphy.com/media/3o6fJeByaJli0IWHyE/giphy.gif)
+![Audio controls](docs/audio.gif)
 
 **Available voice commands:**
 
@@ -49,7 +49,7 @@ about hybrid apps.
 ## Video tracking control
 <br>
 
-![Video controls](https://media.giphy.com/media/3ohs7Kp011hdvsU9ZS/giphy.gif)
+![Video controls](docs/video.gif)
 
 **Available video commands:**
 
