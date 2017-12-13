@@ -24,7 +24,7 @@
 ## Voice control
 <br>
 
-![Audio controls](https://media.giphy.com/media/l3mZq5Ig5sk5WgA3S/giphy.gif)
+![Audio controls](https://media.giphy.com/media/3o6fJeByaJli0IWHyE/giphy.gif)
 
 **Available voice commands:**
 
