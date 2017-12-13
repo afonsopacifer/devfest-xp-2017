@@ -7,7 +7,7 @@
 ## Gamepad control
 <br>
 
-![Joystick controls](https://i.giphy.com/media/xUOxf83dNIWGzZ7YKQ/giphy.webp)
+![Joystick controls](https://media.giphy.com/media/3o6fJfsAdV3MBC8wPC/giphy.gif)
 
 **Available gamepad commands:**
 
@@ -49,7 +49,7 @@ about hybrid apps.
 ## Video tracking control
 <br>
 
-![Vamera controls](https://media.giphy.com/media/3ohs7XPiohPQDnOJIA/giphy.gif)
+![Video controls](https://media.giphy.com/media/3ohs7Kp011hdvsU9ZS/giphy.gif)
 
 **Available video commands:**
 
