@@ -1064,12 +1064,13 @@ btnBack.addEventListener('click', function () {
 // Keyboard
 // -----------------------------
 
+(0, _addKeyboardEventListener2.default)(33, nextSlide);
 (0, _addKeyboardEventListener2.default)(39, nextSlide);
 (0, _addKeyboardEventListener2.default)(40, nextSlide);
+
+(0, _addKeyboardEventListener2.default)(34, backSlide);
 (0, _addKeyboardEventListener2.default)(37, backSlide);
 (0, _addKeyboardEventListener2.default)(38, backSlide);
-(0, _addKeyboardEventListener2.default)(33, nextSlide);
-(0, _addKeyboardEventListener2.default)(34, backSlide);
 
 // ----------------------------------------------------------
 // Video DOM Elements
