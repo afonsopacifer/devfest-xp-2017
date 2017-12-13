@@ -7,7 +7,7 @@
 ## Gamepad control
 <br>
 
-![Joystick controls](https://media.giphy.com/media/xUOxf83dNIWGzZ7YKQ/giphy.gif)
+![Joystick controls](https://i.giphy.com/media/xUOxf83dNIWGzZ7YKQ/giphy.webp)
 
 **Available gamepad commands:**
 
